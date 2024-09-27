@@ -1,0 +1,32 @@
+Aim--> EVM like voting app where user can vote online from a given set of candidates
+
+Functionalities
+1. User has to signup/login first(Signup/Login route required with jwt authentication)
+2. For signup and login, aadhar card/voterID,username and password should be used(payload)
+3. User can change their password
+3. There should be route to see the list of candidates(candidates route)
+4. There should be a route for person to vote[making sure only 1 candidate is voted by 1 person](vote route)
+5.(Additional functionality) Live Display of leaderboard according to most votes(Counting list route)
+6. One admin is managing table of candidates and he can't vote(admin route)
+
+Routes:
+
+User authentication:
+1. /Signup route(POST)
+2. /Login route(POST)-->[username+password(encypted)]
+
+User Profile:
+3. /Profile route(GET)
+4./Profile/Password route (PUT)
+
+Voting:
+5. /candidates route (GET)
+6. /vote/:candidateID route(POST)
+
+Vote counts:
+7. /vote/counting route(GET)
+
+Admin managing candidates:
+8. /candidates route(POST)-->Creating a new candidate
+9. /candidates/:candidateID route(PUT)-->Updating an existing candidate
+10. /candidates/:candidateID route(DELETE)--> Deleting existing candidate
