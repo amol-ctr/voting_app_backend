@@ -9,18 +9,17 @@ const User=require('./../models/user');
 const {jwtMiddleware,generatetoken}=require('./../jwt');
 
 // POST method to create new candidate
-router.post('/:id/:password',async (req,res) => {
+router.post('/create',jwtMiddleware,async (req,res) => {
     
     try {
-        // asking for user id and password
-        const id=req.params.id;
-        const password=req.params.password;
+        // Taking user id attached to request by jwtMiddleware
+        const user_id=req.user.id;
     
-        const admin=await User.findById(id);
+        const admin=await User.findById(user_id);
         // console.log(admin);
         
-        // checking if user with this id and password exists and is admin or not
-        if(admin && admin.role=='admin' && (await admin.comparePassword(password))){
+        // checking if user is admin or not
+        if(admin.role=='admin'){
 
             const data=req.body;
 
@@ -47,21 +46,21 @@ router.post('/:id/:password',async (req,res) => {
 
 
 // PUT method to update existing candidate
-router.put('/:id/:password/:candidate_id',async (req,res) => {
+router.put('/update/:candidate_id',jwtMiddleware,async (req,res) => {
     
     try {
-        // asking for user id and password of admin in parameters
-        const id=req.params.id;
-        const password=req.params.password;
+        // Taking user id attached to request by jwtMiddleware
+        const user_id=req.user.id;
+    
+        const admin=await User.findById(user_id);
+        // console.log(admin);
 
         // asking for candidate id in parameters
         const candidate_id=req.params.candidate_id;
     
-        const admin=await User.findById(id);
-        // console.log(admin);
         
-        // checking if user with this id and password exists and is admin or not
-        if(admin && admin.role=='admin' && (await admin.comparePassword(password))){
+        // checking if user is admin or not
+        if(admin.role=='admin'){
 
             const updated_data=req.body;
 
@@ -92,21 +91,21 @@ router.put('/:id/:password/:candidate_id',async (req,res) => {
 
 
 // Delete method to delete existing candidate
-router.delete('/:id/:password/:candidate_id',async (req,res) => {
+router.delete('/delete/:candidate_id',jwtMiddleware,async (req,res) => {
     
     try {
-        // asking for user id and password of admin in parameters
-        const id=req.params.id;
-        const password=req.params.password;
+        
+        // Taking user id attached to request by jwtMiddleware
+        const user_id=req.user.id;
+    
+        const admin=await User.findById(user_id);
 
         // asking for candidate id in parameters
         const candidate_id=req.params.candidate_id;
     
-        const admin=await User.findById(id);
-        // console.log(admin);
         
-        // checking if user with this id and password exists and is admin or not
-        if(admin && admin.role=='admin' && (await admin.comparePassword(password))){
+        // checking if user is admin or not
+        if(admin.role=='admin'){
 
             // Deleting candidate by ID
             const result=await Candidate.findByIdAndDelete(candidate_id);

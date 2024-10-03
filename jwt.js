@@ -11,7 +11,7 @@ const jwtMiddleware=async(req,res,next)=>{
     const authorization=req.headers.authorization;  // checks authorization type is bearer token
     if(!authorization){
         return res.status(401).json({error:'Token not found'});
-    } 
+    }
     
     // Extract the tokens from request headers
     const token=authorization.split(' ')[1];
