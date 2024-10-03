@@ -9,8 +9,8 @@ Here, I have created a voter application backend where I have created 2 models:-
         Create/Update/Delete operations
     5. Admin has the right to perform CRUD operations on candidate but cannot vote
 2) Candidate-->Contains info about name,age,party of candidate
-     a) This model is managed by admin itself
-     b) Voter can only vote to the candidate and retrieve his/her info.
+     1. This model is managed by admin itself
+     2. Voter can only vote to the candidate and retrieve his/her info.
 
 This backend is deployed on vercel on link: https://voting-app-backend-ymig.onrender.com
 Routes:
