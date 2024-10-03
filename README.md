@@ -4,8 +4,8 @@ Here, I have created a voter application backend where I have created 2 models:-
     a) He has to signup/login first
     b) He has to be logged in to see his profile and can change his password(password is encrypted)
     c) I have used JWT for authentication and created JWT Middleware so that whenever user signup/login, a token is generated and saved at client side web browser for specific time(no need to login again and again)
-   d) Voter can only vote to a particular candidate,see candidate list,see counting leaderboard and cannot perform Create/Update/Delete operations
-   e) Admin has the right to perform CRUD operations on candidate but cannot vote
+    d) Voter can only vote to a particular candidate,see candidate list,see counting leaderboard and cannot perform Create/Update/Delete operations
+    e) Admin has the right to perform CRUD operations on candidate but cannot vote
 2. Candidate-->Contains info about name,age,party of candidate
      a) This model is managed by admin itself
      b) Voter can only vote to the candidate and retrieve his/her info.
