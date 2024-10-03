@@ -12,21 +12,21 @@ Functionalities
 Routes:
 
 User authentication:
-1. /Signup route(POST)
-2. /Login route(POST)-->[username+password(encypted)]
+1. /api/user/Signup route(POST)
+2. /api/user/Login route(POST)-->[username+password(encypted)]
 
 User Profile:
-3. /Profile route(GET)
-4./Profile/Password route (PUT)
+3. /api/user/profile route(GET)
+4./api/user/password route (PUT)
 
 Voting:
-5. /candidates route (GET)
-6. /vote/:candidateID route(POST)
+5. /api/candidates route (GET)
+6. /api/vote/:candidateID route(POST)
 
 Vote counts:
-7. /vote/counting route(GET)
+7. /api/vote/count route(GET)
 
 Admin managing candidates:
-8. /candidates route(POST)-->Creating a new candidate
-9. /candidates/:candidateID route(PUT)-->Updating an existing candidate
-10. /candidates/:candidateID route(DELETE)--> Deleting existing candidate
+8. /api/candidates/create route(POST)-->Creating a new candidate
+9. /api/candidates/update/:candidateID route(PUT)-->Updating an existing candidate
+10. /api/candidates/delete/:candidateID route(DELETE)--> Deleting existing candidate
